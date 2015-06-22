@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script data-require="angular.js@1.4.1" data-semver="1.4.1" src="https://code.angularjs.org/1.4.1/angular.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <!--<script src="script.js"></script>-->
+    <script src="search.js"></script>
+  </head>
+
+  <body>
+<!--  <div ng-app="app" ng-controller="main">
+    <h1>{{message}}</h1>
+    <p>For transfer:
+    <input text={{transfer}} ng-model="transfer" ng-change="balance()" ng-pattern="/^[0-9]+$/"/>
+    </p>
+    <p> Amount: {{amount}}</p>
+    <p> Balance: {{currentBalance}}</p>
+  </div>
+-->
+
+  <div ng-app="instantSearch" ng-controller="InstantSearchController">
+	<div class="bar">
+		<input type="text" ng-model="searchString" placeholder="Enter your search terms" list="title"/>
+        <datalist id="title">
+            <option ng-repeat="i in items | searchFor:searchString" value="{{i.title}}">{{i.title}}<option/>
+        </datalist>
+	</div>
+<!--	<ul>
+		<li ng-repeat="i in items | searchFor:searchString">
+			<a href="{{i.url}}"><img ng-src="{{i.image}}" /></a>
+			<p>{{i.title}}</p>
+		</li>
+	</ul>-->
+
+
+
+  </div>
+
+
+ <div ng-app>
+    <nav class="{{active}}" ng-click="$event.preventDefault()">
+        <a href="#" class="home" ng-click="active='home'">Home</a>
+        <a href="#" class="projects" ng-click="active='projects'">Projects</a>
+        <a href="#" class="services" ng-click="active='services'">Services</a>
+        <a href="#" class="contact" ng-click="active='contact'">Contact</a>
+    </nav>
+    <p ng-hide="active">Please click a menu item</p>
+    <p ng-show="active">You chose <b>{{active}}</b></p>
+  </div>
+
+
+</body>
+</html>
